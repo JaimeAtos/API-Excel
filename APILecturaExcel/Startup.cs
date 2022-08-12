@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APILecturaExcel.Interfaces;
+using APILecturaExcel.Services;
 
 namespace APILecturaExcel
 {
@@ -35,6 +37,8 @@ namespace APILecturaExcel
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APILecturaExcel", Version = "v1" });
             });
+            services.AddScoped<IFileValidations, ExcellFileValidator>();
+            services.AddScoped<IExcellValidator, ExcellFileValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
